@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const PI_DIGITS = "1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679821480865132823066470938446095505822317253594081284811174502841027019385211055596446229489549303819644288109756659334461284756482337867831652712019091456485669234603486104543266482";
+const PI_DIGITS = "14159265358979323846264338327950288419716939937510";
 
 export default function PiDigitChecker() {
   const [index, setIndex] = useState(0);
@@ -36,29 +36,29 @@ export default function PiDigitChecker() {
 
   return (
     <div 
-      className="flex flex-col items-center gap-4 p-6 min-h-screen" 
+      className="flex flex-col items-center gap-6 p-12 min-h-screen w-full" 
       style={{ backgroundColor: isGameOver ? "red" : "white" }}
     >
-      <h1 className="text-2xl font-bold">Pi Cijfer Checker</h1>
-      <p className="text-lg font-semibold">Score: {score}</p>
-      <div className="border p-4 w-96 text-center shadow-md rounded-lg bg-white">
-        <p className="mb-2">Voer de volgende 10 cijfers van π in:</p>
+      <h1 className="text-4xl font-bold">Pi Cijfer Checker</h1>
+      <p className="text-2xl font-semibold">Score: {score}</p>
+      <div className="border p-8 w-2/3 max-w-2xl text-center shadow-lg rounded-lg bg-white">
+        <p className="mb-4 text-xl">Voer de volgende 10 cijfers van π in:</p>
         <input
           type="text"
           value={input}
           maxLength={12}
           disabled={isGameOver}
           onChange={(e) => setInput(e.target.value)}
-          className="border p-2 text-center text-xl w-full"
+          className="border p-4 text-center text-2xl w-full"
         />
         <button 
           onClick={handleCheck} 
-          className="mt-4 w-full p-2 bg-blue-500 text-white rounded"
+          className="mt-6 w-full p-4 bg-blue-500 text-white text-xl rounded"
           disabled={isGameOver}
         >
           Controleer
         </button>
-        {message && <p className="mt-2 text-lg">{message}</p>}
+        {message && <p className="mt-4 text-2xl">{message}</p>}
       </div>
     </div>
   );
